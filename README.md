@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/Version-v1.0.0-blue) ![](https://img.shields.io/badge/License-MIT-blue) [![Tests](https://github.com/cfd-university/Excelnt/actions/workflows/tests.yml/badge.svg)](https://github.com/cfd-university/Excelnt/actions/workflows/tests.yml) 
+
 Exceln't (pronounced excellent); yet another CSV parser library in C++ no one has asked (or has use) for. But don't worry, the purpose of this library is not to be of actual use to anyone, it's sole purpose is to teach a fellow parser library author that a clean library interface is not just possible, but the goal!
 
 In the process, I have accidentally come up with something that is actually useful, so I am distributing it as a header-only, MIT-licensed library so you can knock yourself out and parse CSV files until you loose the will to live.
