@@ -1,12 +1,12 @@
 ![](https://img.shields.io/badge/Version-v1.0.0-blue) ![](https://img.shields.io/badge/License-MIT-blue) [![Tests](https://github.com/cfd-university/Excelnt/actions/workflows/tests.yml/badge.svg)](https://github.com/cfd-university/Excelnt/actions/workflows/tests.yml) 
 
-Exceln't (pronounced excellent); yet another CSV parser library in C++ no one has asked (or has use) for. But don't worry, the purpose of this library is not to be of actual use to anyone, it's sole purpose is to teach a fellow parser library author that a clean library interface is not just possible, but the goal!
+Exceln't (pronounced excellent): yet another CSV parser library in C++ no one has asked for (or, indeed, use for). But don't worry, the purpose of this library is not to be of actual use to anyone; its sole purpose is to teach a fellow parser library author that a clean library interface is not just possible, but the goal!
 
-In the process, I have accidentally come up with something that is actually useful, so I am distributing it as a header-only, MIT-licensed library so you can knock yourself out and parse CSV files until you loose the will to live.
+In the process, I have accidentally come up with something that is actually useful, so I am distributing it as a header-only, MIT-licensed library so you can knock yourself out and parse CSV files until you lose the will to live.
 
 ## Installation
 
-It's header-only, download the `src/excelnt.hpp` file and throw it into your project, include it in your source files, and it'll work. But, if you prefer the slightly more tedious approach, you can also install it with CMake's `FetchContent` if you must:
+It's header-only; download the `src/excelnt.hpp` file and throw it into your project, include it in your source files, and it'll work. But, if you prefer the slightly more tedious approach, you can also install it with CMake's `FetchContent` if you must:
 
 ```CMake
 cmake_minimum_required(VERSION 3.21)
@@ -28,7 +28,7 @@ target_link_libraries(your_app PRIVATE excelnt::excelnt)
 
 ### Executing the test suite 
 
-Both unit and system (end-to-end) tests are provided with this repository. You can execute them doing the following:
+Both unit and system (end-to-end) tests are provided with this repository. You can execute them by doing the following:
 
 ```
 cmake -S . -B build
@@ -80,7 +80,7 @@ table["score"] = score;
 std::vector<std::string> names = {"student_name_1", "student_name_2", "student_name_3"};
 table["name"] = names;
 
-// adding column with floating point data
+// adding column with boolean data
 std::vector<bool> pass = {true, true, false};
 table["pass"] = pass;
 ```
@@ -126,18 +126,18 @@ const auto pass = table["pass"].asBool();
 
 ### Broadcasting
 
-`Excelnt` isn't a complicated parser, and the above covers 99% of the use cases. Don't expect fire breathing dragons, magic, or enhanced social status by using this library. It does, however, implement broadcasting (~~a term definitly not stolen from numpy~~).
+`Excelnt` isn't a complicated parser, and the above covers 99% of the use cases. Don't expect fire-breathing dragons, magic, or enhanced social status by using this library. It does, however, implement broadcasting (~~a term definitely not stolen from numpy~~).
 
 If you have a CSV file like so:
 
 ```csv
 year,price,product,in_stock
-2024,19.99,Notebook,true
-2024,24.50,Backpack,true
-2024,7.25,Pen Set,true
+2024,3.49,Notebook,true
+2024,79.99,Backpack,true
+2024,0.99,Pen,true
 ```
 
-The ```year``` and ```in_stock``` is the same in all three rows. We could write this CSV file now as:
+The ```year``` and ```in_stock``` are the same in all three rows. We could write this CSV file now as:
 
 ```c++
 std::vector<int> year = {2024, 2024, 2024};
@@ -149,11 +149,11 @@ table["price"] = price;
 std::vector<std::string> product = {"Notebook", "Backpack", "Pen"};
 table["product"] = product;
 
-std::vector<bool> in_stock = {true, false, true};
+std::vector<bool> in_stock = {true, true, true};
 table["in_stock"] = in_stock;
 ```
 
-But, since both ```year``` and ```in_stock``` is the same, we could also simplify this to the following:
+But, since both ```year``` and ```in_stock``` are the same, we could also simplify this to the following:
 
 ```c++
 table["year"] = 2024;
@@ -167,4 +167,4 @@ table["product"] = product;
 table["in_stock"] = true;
 ```
 
-If all the columns have the same value, we can simply write the scalar value and then ```excelnt``` will *broadcast* this value into all the other rows so we have type less and can spend more time doing other improtant stuff. See, ```excelnt``` really is *excellent (by design)*.
+If all the columns have the same value, we can simply write the scalar value and then ```excelnt``` will *broadcast* this value into all the other rows so we have to type less and can spend more time on *learning how to write a clean library API*. See, ```excelnt``` really is *excellent (by design)*.
