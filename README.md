@@ -16,7 +16,7 @@ include(FetchContent)
 FetchContent_Declare(
     excelnt
     GIT_REPOSITORY https://github.com/cfd-university/Excelnt.git
-    GIT_TAG        main
+    GIT_TAG        v1.0.0
     GIT_SHALLOW    TRUE
 )
 

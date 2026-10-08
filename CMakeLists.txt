@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 
 project(excelnt
-    VERSION 0.1.0
+    VERSION 1.0.0
     DESCRIPTION "Header-only C++ library for reading and writing CSV files"
     LANGUAGES CXX)
 
