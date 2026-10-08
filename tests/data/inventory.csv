@@ -1,0 +1,5 @@
+sku, name, quantity, price, in_stock
+A-100, Widget, 12, 2.50, true
+A-101, "Gadget, large", 3, 19.99, false
+B-200, "The ""Best"" Gizmo", 7, 5.00, TRUE
+B-201, Sprocket, 0, 0.75, False
