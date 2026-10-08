@@ -10,7 +10,7 @@ It's header-only, download the `src/excelnt.hpp` file and throw it into your pro
 
 ```CMake
 cmake_minimum_required(VERSION 3.21)
-project(my_app LANGUAGES CXX)
+project(your_app LANGUAGES CXX)
 
 include(FetchContent)
 FetchContent_Declare(
